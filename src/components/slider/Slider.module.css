@@ -1,0 +1,12 @@
+.wrapper {
+  width: 100%;
+  aspect-ratio: 10 / 6;
+  position: relative;
+  border-radius: 6px;
+  padding: 0px 12px;
+  background-color: #141414;
+
+  @media screen and (min-width: 560px) {
+    padding: 0px 40px;
+  }
+}

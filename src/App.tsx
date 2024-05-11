@@ -1,7 +1,9 @@
+import Slider from './components/slider/Slider';
+
 function App() {
   return (
     <div className='app'>
-      <h1>React Slider</h1>
+      <Slider />
     </div>
   );
 }
