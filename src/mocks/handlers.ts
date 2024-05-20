@@ -1,13 +1,8 @@
 import { http, HttpResponse } from 'msw';
 import images from './ItemsX10.json';
+import { DataItem } from 'src/api/types';
 
-const NUMBER_OF_ITEMS = 10;
-
-export type DataItem = {
-  id: string;
-  url: string;
-  creationDate: Date;
-};
+const NUMBER_OF_ITEMS = 3;
 
 function getRandomDate(start: Date, end: Date): Date {
   return new Date(
@@ -43,7 +38,7 @@ const generateData = () => {
 const getNextDataItems = generateData();
 
 export const handlers = [
-  http.get('/mocks/items', () => {
+  http.get('/api/mocks/items', () => {
     const data = getNextDataItems(NUMBER_OF_ITEMS);
     return HttpResponse.json(data);
   }),
