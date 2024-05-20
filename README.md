@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
+# Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project features a clean design react slider component, developed using React, Vite, and TypeScript, without any additional external libraries (for the slider implementation).
 
-Currently, two official plugins are available:
+It features a mock data layer using MSW (Mock Service Worker), ability to handle a changing number of items and supports button and keyboard controls, as well as touch gestures. It is planned to have an additional caching mechanism in order to get better perfoemance when dealing with larger number of items.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Development
 
-## Expanding the ESLint configuration
+- Install all dependencies > npm install
+- Setup MSW > npx msw init <PUBLIC_DIR>
+- Run dev mode > npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Production
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The [project](https://react-slider-five.vercel.app/) is running on Vercel
