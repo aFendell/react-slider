@@ -1,21 +1,56 @@
-import { useEffect } from 'react';
 import styles from './Slider.module.css';
-import { api } from 'src/api/mockAPI';
+import useSlider from './useSlider';
+import DateLabel from './DateLabel';
+import SliderControls from './SliderControls';
 
 const Slider = () => {
-  useEffect(() => {
-    const initilizeItems = async () => {
-      const items = await api.getNextItems();
-      console.log(items);
-      return items;
-    };
-    initilizeItems();
-  }, []);
+  const {
+    items,
+    index,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+    onPreviousItem,
+    onNextItem,
+    hasMoreItems,
+  } = useSlider();
 
-  return (
-    <div className={styles.wrapper}>
-      <h1>React Slider</h1>
-    </div>
+  return items && items.length ? (
+    <section aria-label='Slider' className={styles.wrapper}>
+      <DateLabel
+        date={items[index]?.creationDate}
+        className={styles['top-right']}
+      />
+      <div
+        className={styles.container}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {items?.map((item, i) => (
+          <img
+            key={item.id}
+            src={item.url}
+            alt={`Image ${i + 1}`}
+            aria-hidden={i !== index}
+            className={styles.img}
+            style={{
+              translate: `${-100 * index}%`,
+            }}
+          />
+        ))}
+      </div>
+      <DateLabel date={items[index]?.creationDate} />
+      <SliderControls
+        index={index}
+        onPrevItem={onPreviousItem}
+        onNextItem={onNextItem}
+        itemsCount={items.length}
+        hasMoreItems={hasMoreItems}
+      />
+    </section>
+  ) : (
+    <div>skeleton</div>
   );
 };
 
