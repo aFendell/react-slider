@@ -1,8 +1,9 @@
 # Project
 
-The project features a clean design react slider component, developed using React, Vite, and TypeScript, without any additional external libraries (for the slider implementation).
+The project features a clean, minimalistic design of a React slider component, developed using React, Vite, and TypeScript, without any additional external libraries (for the slider implementation).
 
-It features a mock data layer using MSW (Mock Service Worker), ability to handle a changing number of items and supports button and keyboard controls, as well as touch gestures. It is planned to have an additional caching mechanism in order to get better perfoemance when dealing with larger number of items.
+It features a mock data layer using MSW (Mock Service Worker), ability to handle a changing number of items and supports button and keyboard controls, as well as touch gestures.
+The plan is to add a caching mechanism in order to get better performance when dealing with large number of items.
 
 ## Development
 
@@ -12,4 +13,4 @@ It features a mock data layer using MSW (Mock Service Worker), ability to handle
 
 ## Production
 
-The [project](https://react-slider-five.vercel.app/) is running on Vercel
+A CI/CD pipeline using Github Actions was set up to develop and deploy the [project](https://react-slider-five.vercel.app/) on Vercel.
